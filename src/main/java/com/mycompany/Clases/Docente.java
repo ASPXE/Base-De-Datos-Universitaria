@@ -80,6 +80,11 @@ public class Docente extends Persona{
     public void setIdDocentes(int idDocentes) {
         this.idDocentes = idDocentes;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " " + "idDocente: "+getIdDocentes();
+    }
     
     
     

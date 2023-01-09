@@ -4,6 +4,13 @@
  */
 package com.mycompany.MenusCategorias;
 
+import com.mycompany.Clases.Materia;
+import com.mycompany.DataAccessObjects.MateriaDAO;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author aspxe
@@ -40,23 +47,67 @@ public class MenuMaterias extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         btnVerMateria.setText("Ver materias");
+        btnVerMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerMateriaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnVerMateria);
         btnVerMateria.setBounds(220, 40, 150, 24);
 
         btnIngresarMateria.setText("Ingresar materia");
+        btnIngresarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarMateriaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnIngresarMateria);
         btnIngresarMateria.setBounds(220, 150, 136, 24);
 
         btnActualizarMateria.setText("Actualizar materia");
+        btnActualizarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarMateriaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnActualizarMateria);
         btnActualizarMateria.setBounds(220, 260, 147, 24);
 
         btnEliminarMateria.setText("Eliminar materia");
+        btnEliminarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarMateriaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEliminarMateria);
         btnEliminarMateria.setBounds(220, 370, 136, 24);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVerMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerMateriaActionPerformed
+        MateriaDAO md = new MateriaDAO();
+        try {
+            List<Materia> materias = md.seleccionar();
+            for (Materia materia : materias) {
+                System.out.println("Materia = " + materia.toString());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAlumnos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnVerMateriaActionPerformed
+
+    private void btnIngresarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarMateriaActionPerformed
+        
+    }//GEN-LAST:event_btnIngresarMateriaActionPerformed
+
+    private void btnActualizarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarMateriaActionPerformed
+        
+    }//GEN-LAST:event_btnActualizarMateriaActionPerformed
+
+    private void btnEliminarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarMateriaActionPerformed
+        
+    }//GEN-LAST:event_btnEliminarMateriaActionPerformed
 
     /**
      * @param args the command line arguments

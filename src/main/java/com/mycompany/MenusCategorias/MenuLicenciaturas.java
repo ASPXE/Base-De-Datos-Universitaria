@@ -4,6 +4,15 @@
  */
 package com.mycompany.MenusCategorias;
 
+import com.mycompany.Clases.Licenciatura;
+import com.mycompany.DataAccessObjects.LicenciaturaDAO;
+import com.mycompany.SubMenus.Licenciaturas.ActualizarLicenciaturas;
+import com.mycompany.SubMenus.Licenciaturas.EliminarLicenciaturas;
+import com.mycompany.SubMenus.Licenciaturas.InsertarLicenciaturas;
+import java.sql.SQLException;
+import java.util.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aspxe
@@ -40,23 +49,71 @@ public class MenuLicenciaturas extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         btnVerLicenciaturas.setText("Ver licenciaturas registradas");
+        btnVerLicenciaturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerLicenciaturasActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnVerLicenciaturas);
         btnVerLicenciaturas.setBounds(170, 30, 230, 24);
 
         btnRegistrarLicenciatura.setText("Registrar licenciatura");
+        btnRegistrarLicenciatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarLicenciaturaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnRegistrarLicenciatura);
         btnRegistrarLicenciatura.setBounds(200, 150, 168, 24);
 
         btnActualizarLicenciatura.setText("Actualizar licenciatura");
+        btnActualizarLicenciatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarLicenciaturaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnActualizarLicenciatura);
         btnActualizarLicenciatura.setBounds(200, 300, 172, 24);
 
         btnEliminarLicenciatura.setText("Eliminar licenciatura");
+        btnEliminarLicenciatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarLicenciaturaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEliminarLicenciatura);
         btnEliminarLicenciatura.setBounds(200, 440, 161, 24);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarLicenciaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarLicenciaturaActionPerformed
+        InsertarLicenciaturas il = new InsertarLicenciaturas();
+        il.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarLicenciaturaActionPerformed
+
+    private void btnVerLicenciaturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerLicenciaturasActionPerformed
+        LicenciaturaDAO ld = new LicenciaturaDAO();
+        try {
+            List<Licenciatura> licenciaturas = ld.seleccionar();
+            for(Licenciatura licenciatura: licenciaturas){
+                System.out.println("licenciatura = "+licenciatura.toString());
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVerLicenciaturasActionPerformed
+
+    private void btnActualizarLicenciaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarLicenciaturaActionPerformed
+        ActualizarLicenciaturas al = new ActualizarLicenciaturas();
+        al.setVisible(true);
+    }//GEN-LAST:event_btnActualizarLicenciaturaActionPerformed
+
+    private void btnEliminarLicenciaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarLicenciaturaActionPerformed
+        EliminarLicenciaturas el = new EliminarLicenciaturas();
+        el.setVisible(true);
+    }//GEN-LAST:event_btnEliminarLicenciaturaActionPerformed
 
     /**
      * @param args the command line arguments

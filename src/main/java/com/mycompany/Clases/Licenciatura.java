@@ -6,6 +6,7 @@ package com.mycompany.Clases;
  */
 public class Licenciatura {
     
+    private int idLicenciaturas;
     private String clave;
     private String REVOE;
     private String nombre;
@@ -16,10 +17,16 @@ public class Licenciatura {
     }
     
     //Constructor con todos los parametros
-    public Licenciatura(String clave, String REVOE, String nombre){
+    public Licenciatura(String clave, String REVOE, String nombre, int idLicenciaturas){
         this.clave = clave;
         this.REVOE = REVOE;
         this.nombre = nombre;
+        this.idLicenciaturas = idLicenciaturas;
+    }
+    
+    //Constructor con solo idLicenciaturas
+    public Licenciatura(int idLicenciaturas){
+        this.idLicenciaturas = idLicenciaturas;
     }
     
     //Metodos get y set
@@ -47,6 +54,20 @@ public class Licenciatura {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public int getIdLicenciaturas() {
+        return this.idLicenciaturas;
+    }
+
+    public void setIdLicenciaturas(int idLicenciaturas) {
+        this.idLicenciaturas = idLicenciaturas;
+    }
+
+    @Override
+    public String toString() {
+        return "Licenciatura{" + "idLicenciaturas=" + idLicenciaturas + ", clave=" + clave + ", REVOE=" + REVOE + ", nombre=" + nombre + '}';
+    }
     
     
+
 }

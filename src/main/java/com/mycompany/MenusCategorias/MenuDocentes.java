@@ -4,6 +4,17 @@
  */
 package com.mycompany.MenusCategorias;
 
+import com.mycompany.Clases.Docente;
+import com.mycompany.DataAccessObjects.DocenteDAO;
+import com.mycompany.SubMenus.Docentes.ActualizarDocentes;
+import com.mycompany.SubMenus.Docentes.EliminarDocentes;
+import com.mycompany.SubMenus.Docentes.InsertarDocentes;
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author aspxe
@@ -40,23 +51,71 @@ public class MenuDocentes extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         btnVerDocentes.setText("Ver docentes");
+        btnVerDocentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerDocentesActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnVerDocentes);
         btnVerDocentes.setBounds(230, 50, 120, 24);
 
         btnIngresarDocente.setText("Ingresar nuevo docente");
+        btnIngresarDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarDocenteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnIngresarDocente);
         btnIngresarDocente.setBounds(200, 170, 182, 24);
 
         btnActualizarDocente.setText("Actualizar informacion de docente");
+        btnActualizarDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarDocenteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnActualizarDocente);
         btnActualizarDocente.setBounds(170, 300, 250, 24);
 
         btnEliminarDocente.setText("Eliminar docente");
+        btnEliminarDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarDocenteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEliminarDocente);
         btnEliminarDocente.setBounds(220, 430, 139, 24);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVerDocentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDocentesActionPerformed
+        DocenteDAO dd = new DocenteDAO();
+        try {
+            List<Docente> docentes = dd.seleccionar();
+            for(Docente docente: docentes){
+                System.out.println("docente = "+docente.toString());
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuDocentes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnVerDocentesActionPerformed
+
+    private void btnIngresarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarDocenteActionPerformed
+        InsertarDocentes id = new InsertarDocentes();
+        id.setVisible(true);
+    }//GEN-LAST:event_btnIngresarDocenteActionPerformed
+
+    private void btnActualizarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarDocenteActionPerformed
+        ActualizarDocentes ad = new ActualizarDocentes();
+        ad.setVisible(true);
+    }//GEN-LAST:event_btnActualizarDocenteActionPerformed
+
+    private void btnEliminarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDocenteActionPerformed
+        EliminarDocentes ed = new EliminarDocentes();
+        ed.setVisible(true);
+    }//GEN-LAST:event_btnEliminarDocenteActionPerformed
 
     /**
      * @param args the command line arguments

@@ -71,8 +71,10 @@ public class InsertarAlumnos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Insertar Alumnos");
-        setLocation(new java.awt.Point(500, 300));
+        setLocation(new java.awt.Point(600, 300));
+        setMaximumSize(new java.awt.Dimension(400, 400));
         setMinimumSize(new java.awt.Dimension(10, 10));
+        setPreferredSize(new java.awt.Dimension(400, 400));
         getContentPane().setLayout(null);
 
         lblNombre.setText("Nombre");
@@ -97,7 +99,7 @@ public class InsertarAlumnos extends javax.swing.JFrame {
         getContentPane().add(cbYear);
         cbYear.setBounds(20, 300, 72, 24);
 
-        cbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" }));
         getContentPane().add(cbMes);
         cbMes.setBounds(150, 300, 72, 24);
 
@@ -155,13 +157,13 @@ public class InsertarAlumnos extends javax.swing.JFrame {
         year = Integer.parseInt(cbYear.getItemAt(seleccionYear));
         year = year - 1900;
         mes = Integer.parseInt(cbMes.getItemAt(seleccionMes));
-        mes = mes - 1;
         dia = Integer.parseInt(cbDia.getItemAt(seleccionDia));
         Date d = new Date(year, mes, dia);
         //Insertando nuevo objeto del tipo alumno
         Alumno a = new Alumno(nombre, apellidoP, apellidoM, d);
         try {
             ad.insertar(a);
+            JOptionPane.showMessageDialog(rootPane, "Alumno ingresado exitosamente", "Registro insertado", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
             Logger.getLogger(InsertarAlumnos.class.getName()).log(Level.SEVERE, null, ex);
         }

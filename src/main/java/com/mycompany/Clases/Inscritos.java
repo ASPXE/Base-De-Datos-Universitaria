@@ -6,6 +6,7 @@ package com.mycompany.Clases;
  */
 public class Inscritos {
     
+    private int ins;
     private int fk_alumno;
     private int fk_docente;
     private int fk_materia;
@@ -17,15 +18,28 @@ public class Inscritos {
     }
     
     //Constructor con todos los parametros
-    public Inscritos(int fk_alumno, int fk_docente, int fk_materia, String ciclo){
+    public Inscritos(int ins, int fk_alumno, int fk_docente, int fk_materia, String ciclo){
         this.fk_alumno = fk_alumno;
         this.fk_docente = fk_docente;
         this.fk_materia = fk_materia;
         this.ciclo = ciclo;
     }
     
+    //Constructor solo con ins
+    public Inscritos(int ins){
+        this.ins = ins;
+    }
+    
     //Metodos get y set
 
+    public int getIns() {
+        return this.ins;
+    }
+
+    public void setIns(int ins) {
+        this.ins = ins;
+    }
+    
     public int getFk_alumno() {
         return this.fk_alumno;
     }

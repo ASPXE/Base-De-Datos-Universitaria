@@ -51,7 +51,7 @@ public class AlumnoDAO {
         
     }
     
-    //Insertar en la base de datos
+    //Insertar un registro en la tabla de Alumnos, perteneciente a la base de datos Visual2022B
     public int insertar(Alumno a) throws SQLException{
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -68,8 +68,8 @@ public class AlumnoDAO {
         return registros;
     }
     
-    //Eliminar un registro en la base de datos
     
+    //Eliminar un registro de la tabla Alumnos, perteneciente a la base de datos Visual2022B
     public int eliminar(Alumno a) throws SQLException{
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -84,6 +84,7 @@ public class AlumnoDAO {
         return registros;
     }
     
+    //Actualizar un registro de la tabla Alumnos, perteneciente a la base de datos Visual2022B
     public int actualizar(Alumno a) throws SQLException{
         Connection conn = null;
         PreparedStatement stmt = null;
